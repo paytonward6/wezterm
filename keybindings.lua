@@ -3,17 +3,12 @@ local act = wezterm.action
 
 return {
     { key = "h",
-        mods = "CTRL",
+        mods = "CTRL|SHIFT",
         action = act.ActivatePaneDirection("Left")
     },
     {
         key = "l",
-        mods = "CTRL",
-        action = act.ActivatePaneDirection("Right")
-    },
-    {
-        key = "l",
-        mods = "CTRL",
+        mods = "CTRL|SHIFT",
         action = act.ActivatePaneDirection("Right")
     },
     {
@@ -35,5 +30,36 @@ return {
         key = "s",
         mods = "CTRL|SHIFT",
         action = act.RotatePanes("Clockwise")
-    }
+    },
+{
+    key = 'N',
+    mods = 'CTRL|SHIFT',
+    action = act.PromptInputLine {
+      description = wezterm.format {
+        { Attribute = { Intensity = 'Bold' } },
+        { Foreground = { AnsiColor = 'Fuchsia' } },
+        { Text = 'Enter name for new workspace' },
+      },
+      action = wezterm.action_callback(function(window, pane, line)
+        -- line will be `nil` if they hit escape without entering anything
+        -- An empty string if they just hit enter
+        -- Or the actual line of text they wrote
+        if line then
+          window:perform_action(
+            act.SwitchToWorkspace {
+              name = line,
+            },
+            pane
+          )
+        end
+      end),
+    },
+  },{
+    key = '9',
+    mods = 'ALT',
+    action = act.ShowLauncherArgs {
+      flags = 'FUZZY|WORKSPACES',
+    },
+  },
+
 }
