@@ -5,6 +5,7 @@ local keybindings = require("keybindings")
 return {
     keys = keybindings,
 
+    audible_bell = "Disabled",
     prefer_egl = false,
 
     -- Cursor
