@@ -1,20 +1,9 @@
-local wezterm = require 'wezterm'
-local act = wezterm.action
+
+local wezterm = require('wezterm')
+local keybindings = require("keybindings")
+
 return {
-    --leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 500 },
-    --disable_default_key_bindings = true,
-    -- keys = { 
-    --     { key = '[', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(-1) },
-    --     { key = ']', mods = 'SHIFT|SUPER', action = act.ActivateTabRelative(1) },
-    --     { key = 'C', mods = 'CTRL', action = act.CopyTo 'Clipboard' },
-    --     { key = 'c', mods = 'SUPER', action = act.CopyTo 'Clipboard' },
-    -- },
-    --keys = {
-    --    { 
-    --        key = 'v',
-    --        mods = 'LEADER|SHIFT',
-    --        action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
-    --},
+    keys = keybindings,
 
     prefer_egl = false,
 
@@ -24,7 +13,7 @@ return {
 
     -- Fonts
     font = wezterm.font('JetBrains Mono'),
-    font_size = 15.0,
+    font_size = 17.0,
 
     -- Colors
     color_scheme = "Monokai (base16)",
