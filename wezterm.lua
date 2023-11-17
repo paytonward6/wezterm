@@ -1,11 +1,12 @@
 
 local wezterm = require('wezterm')
 local keybindings = require("keybindings")
+local utils = require("utils")
 
 return {
     keys = keybindings,
 
-    audible_bell = "Disabled",
+    audible_bell = "SystemBeep",
     prefer_egl = false,
 
     -- Cursor
@@ -13,8 +14,12 @@ return {
     cursor_blink_rate = 800,
 
     -- Fonts
-    font = wezterm.font('JetBrains Mono'),
-    font_size = 17.0,
+    font = utils.by_os({
+        mac = wezterm.font('JetBrains Mono'),
+        linux = wezterm.font('JetBrains Mono', {weight = "Light"}),
+    }),
+
+    font_size = utils.by_os({mac = 17.0, linux = 10.0}),
 
     -- Colors
     color_scheme = "Monokai (base16)",
@@ -24,11 +29,14 @@ return {
     },
 
     -- Background
-    window_background_image = "/Users/payton/.doom.d/wallpapers/emacs_wallpaper.png",
-    window_background_image_hsb = {
-        -- Darken the background image by reducing it to 1/3rd
-    brightness = 0.05,
-    },
+    window_background_image = utils.by_os({
+        mac = "/Users/payton/.doom.d/wallpapers/emacs_wallpaper.png"}),
+
+    window_background_image_hsb = utils.by_os({
+        mac = {
+            -- Darken the background image by reducing it to 1/3rd
+            brightness = 0.05,
+    }}),
 
     -- Tabs
     hide_tab_bar_if_only_one_tab = true,
