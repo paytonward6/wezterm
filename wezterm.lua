@@ -6,7 +6,7 @@ local utils = require("utils")
 return {
     keys = keybindings,
 
-    audible_bell = "SystemBeep",
+    audible_bell = "Disabled",
     prefer_egl = false,
 
     -- Cursor
