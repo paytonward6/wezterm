@@ -12,6 +12,16 @@ return {
         action = act.ActivatePaneDirection("Right")
     },
     {
+        key = "k",
+        mods = "CTRL|SHIFT",
+        action = act.ActivatePaneDirection("Up")
+    },
+    {
+        key = "j",
+        mods = "CTRL|SHIFT",
+        action = act.ActivatePaneDirection("Down")
+    },
+    {
         key = "\\",
         mods = "CTRL",
         action = act.SplitHorizontal({domain = "CurrentPaneDomain"})
