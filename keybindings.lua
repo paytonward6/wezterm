@@ -42,7 +42,7 @@ return {
         action = act.RotatePanes("Clockwise")
     },
     {
-        key = "9",
+        key = "r",
         mods = "CTRL|SHIFT",
         action = act.ShowLauncherArgs({ flags =  "FUZZY | WORKSPACES", title = nil}),
     },

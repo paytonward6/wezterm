@@ -3,6 +3,10 @@ local wezterm = require('wezterm')
 local keybindings = require("keybindings")
 local utils = require("utils")
 
+wezterm.on('update-right-status', function(window, pane)
+  window:set_right_status(window:active_workspace())
+end)
+
 return {
     keys = keybindings,
 
@@ -40,7 +44,7 @@ return {
     }}),
 
     -- Tabs
-    hide_tab_bar_if_only_one_tab = true,
+    hide_tab_bar_if_only_one_tab = false,
     use_fancy_tab_bar = false,
 
     -- Windows
