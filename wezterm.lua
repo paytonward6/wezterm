@@ -24,11 +24,12 @@ return {
         linux = wezterm.font('JetBrains Mono', {weight = "Light"}),
     }),
 
-    font_size = utils.by_os({mac = 14.0, linux = 10.0}),
+    font_size = utils.by_os({mac = 14.0, linux = 11.0}),
 
     -- Colors
     color_scheme = "Monokai (base16)",
 
+    window_background_opacity = 0.9,
     colors = {
         scrollbar_thumb = '#444444',
     },
